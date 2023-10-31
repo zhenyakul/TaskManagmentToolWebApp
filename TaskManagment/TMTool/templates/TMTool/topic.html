@@ -13,5 +13,8 @@
       <p>No entries</p>
       {% endfor %}
   </ul>
+  <p>
+      <a href="{% url 'TMTool:new_entry' topic.id %}">Add new entry</a>
+  </p>
 
 {% endblock content %}
