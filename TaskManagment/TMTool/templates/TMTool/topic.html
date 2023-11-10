@@ -8,10 +8,16 @@
       <li>
           <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
           <p>{{ entry.text|linebreaks }}</p>
+          <p>
+              <a href="{% url 'TMTool:edit_entry' entry.id %}">Edit entry</a>
+          </p>
       </li>
       {% empty %}
       <p>No entries</p>
       {% endfor %}
   </ul>
+  <p>
+      <a href="{% url 'TMTool:new_entry' topic.id %}">Add new entry</a>
+  </p>
 
 {% endblock content %}

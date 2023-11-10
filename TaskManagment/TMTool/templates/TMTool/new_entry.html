@@ -1,0 +1,13 @@
+{% extends "TMTool/base.html" %}
+
+{% block content %}
+  <h2><a href="{% url 'TMTool:topic' topic.id %}">{{ topic }}</a></h2>
+
+  <h3>Add a new entry: </h3>
+  <form action="{% url 'TMTool:new_entry' topic.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">Add entry</button>
+  </form>
+
+{% endblock content %}
