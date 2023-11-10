@@ -1,13 +1,140 @@
-<p>
-    <a href="{% url 'TMTool:index' %}">TMTool</a> -
-    <a href="{% url 'TMTool:topics' %}">Topics</a> -
-    {% if user.is_authenticated %}
-      Hello, {{ user.username }}
-    <a href="{% url 'users:logout' %}">Log out</a>
-    {% else %}
-    <a href="{% url 'users:register' %}">Register</a> -
-    <a href="{% url 'users:login' %}">Log in</a>
-    {% endif %}
-</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>TMTool</title>
 
-{% block content %}{% endblock content %}
+    <style>
+
+body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black; 
+}
+
+.page-container {
+    margin: 15px;
+}
+
+nav {
+    background-color: white; 
+    border-bottom: 1px solid #dee2e6;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    margin-right: 10px;
+}
+
+nav a:hover {
+    color: #0056b3;
+}
+
+.navbar-text {
+    margin-right: 10px;
+    color: black;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.page-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: black; 
+}
+
+.header-links {
+    display: flex;
+    align-items: center;
+}
+
+.header-links li {
+    list-style: none;
+    margin-right: 10px;
+}
+
+/* topics */
+.topics-header {
+    font-size: 28px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.topics-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.topics-list li {
+    margin-bottom: 10px;
+    background-color: white; 
+    color: black; 
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.topics-list a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.topics-list a:hover {
+    color: #0056b3;
+}
+
+.new-topic-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: white; 
+    color: black; 
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.new-topic-link:hover {
+    background-color: #218838;
+}
+
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="{% url 'TMTool:index' %}">TMTool</a>
+
+      <ul class="header-links">
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'TMTool:topics' %}">Topics</a></li>
+        <li class="navbar-text">Hello, {{ user.username }}</li>
+        <li><a href="{% url 'users:logout' %}">Log out</a></li>
+        {% else %}
+        <li><a href="{% url 'users:register' %}">Register</a></li>
+        <li><a href="{% url 'users:login' %}">Log in</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    <main class="page-container">
+      <div class="page-header">
+        {% block page_header %}{% endblock page_header %}
+      </div>
+
+      <div>{% block content %}{% endblock content %}</div>
+    </main>
+  </body>
+</html>
