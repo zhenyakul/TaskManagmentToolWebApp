@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #MyApps
     'TMTool',
+    'users',
 ]
 
 MIDDLEWARE = [
