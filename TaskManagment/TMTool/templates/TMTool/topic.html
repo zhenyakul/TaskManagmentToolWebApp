@@ -1,23 +1,17 @@
 {% extends "TMTool/base.html" %}
 
 {% block content %}
-  <h2>Topic: {{ topic }}</h2>
-  <p>Entries: </p>
-  <ul>
-      {% for entry in entries %}
-      <li>
-          <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
-          <p>{{ entry.text|linebreaks }}</p>
-          <p>
-              <a href="{% url 'TMTool:edit_entry' entry.id %}">Edit entry</a>
-          </p>
-      </li>
-      {% empty %}
-      <p>No entries</p>
-      {% endfor %}
-  </ul>
-  <p>
-      <a href="{% url 'TMTool:new_entry' topic.id %}">Add new entry</a>
-  </p>
+    <h2 class="topics-header">Topics</h2>
 
+    <ul class="topics-list">
+        {% for topic in topics %}
+            <li>
+                <a href="{% url 'TMTool:topic' topic.id %}">{{ topic }}</a>
+            </li>
+        {% empty %}
+            <li>No topics have been added yet.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'TMTool:new_topic' %}" class="new-topic-link">Add new topic</a>
 {% endblock content %}
