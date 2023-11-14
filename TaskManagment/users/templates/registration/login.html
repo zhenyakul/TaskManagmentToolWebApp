@@ -1,17 +1,12 @@
-{% extends 'TMTool/base.html' %}
+{% extends 'TMTool/base.html' %} {% block content %}
 
-{% block content %}
-
+<div class="center-container">
   <h2>Log in to your account.</h2>
 
-
   <form class="form" action="{% url 'users:login' %}" method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-
-        <button name="submit" class="btn btn-primary">Log in</button>
-
-      <input type="hidden" name="next"
-        value="{% url 'TMTool:index' %}" />
+    {% csrf_token %} {{ form.as_p }}
+    <button name="submit" class="btn btn-primary">Log in</button>
+    <input type="hidden" name="next" value="{% url 'TMTool:index' %}" />
   </form>
+</div>
 {% endblock content %}
