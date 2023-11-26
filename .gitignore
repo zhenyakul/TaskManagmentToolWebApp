@@ -3,6 +3,3 @@ db.sqlite3
 
 # Ignore virtual environment directory
 venv/
-
-# Ignore virtual environment directory
-venv/
