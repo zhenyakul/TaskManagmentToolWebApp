@@ -7,7 +7,7 @@
     {% csrf_token %}
     {{ form.as_p }}
 
-      <button name="submit" class="btn btn-primary">register</button>
+      <button name="submit" class="btn btn-primary">Register</button>
 
     <input type="hidden" name="next" value="{% url 'TMTool:index' %}"/>
 </form>

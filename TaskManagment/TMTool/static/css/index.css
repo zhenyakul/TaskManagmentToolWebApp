@@ -1,0 +1,45 @@
+main div {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  main h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: black;
+  }
+  
+  .main-ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .main-li {
+    transition: 0.5s;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: white;
+    color: white;
+    padding: 10px;
+    border-radius: 50px; 
+    border: 3px solid transparent; 
+    background: linear-gradient(
+      90deg,
+      var(--c1, #000000),
+      var(--c2, #116f8c) 51%,
+      var(--c1, #13004d)
+    )
+    var(--x, 0) / 200% border-box;
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+  
+  
+  .main-li:hover {
+    --x: 100%;
+  }
