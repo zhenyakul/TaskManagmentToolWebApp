@@ -1,25 +1,12 @@
-{% extends "TMTool/base.html" %} {% block content %}
-<div>
-  <p>
-    Efficiently manage your tasks with our powerful Task Management Tool. Stay
-    organized, collaborate seamlessly, and boost productivity.
-  </p>
-  <h2>Key Features:</h2>
-  <ul>
-    <li>Intuitive task creation and assignment</li>
-    <li>Real-time collaboration with team members</li>
-    <li>Prioritization and deadline management</li>
-    <li>Customizable task categories and tags</li>
-    <li>Progress tracking and reporting</li>
-  </ul>
-  <p>
-    Getting started is easy! Simply click the button below to create your
-    account and begin managing your tasks effectively.
-  </p>
-</div>
-<div class="get-started-container">
-  <a href="{% url 'users:register' %}" class="get-started-button btn-1"
-    >Get Started</a
-  >
+{% extends 'TMTool/base.html' %} {% block content %}
+
+<div class="center-container">
+  <h2>Welcome back</h2>
+
+  <form class="form" action="{% url 'users:login' %}" method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <button name="submit" class="btn btn-primary">Login</button>
+    <input type="hidden" name="next" value="{% url 'TMTool:index' %}" />
+  </form>
 </div>
 {% endblock content %}
