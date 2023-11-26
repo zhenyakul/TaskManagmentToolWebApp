@@ -5,14 +5,13 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href='{% static "css/styles.css" %}' />
+    <link rel="stylesheet" href='{% static "css/index.css" %}' />
     <link rel="stylesheet" href='{% static "css/footer.css" %}' />
-
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <title>TMTool</title>
-
   </head>
   <body>
     <nav>
@@ -24,8 +23,10 @@
         <li class="navbar-text">Hello, {{ user.username }}</li>
         <li><a href="{% url 'users:logout' %}">Log out</a></li>
         {% else %}
-        <li><a href="{% url 'users:register' %}">Register</a></li>
-        <li><a href="{% url 'users:login' %}">Log in</a></li>
+        <li class="nav-btn">
+          <a href="{% url 'users:register' %}">Register</a>
+        </li>
+        <li class="nav-btn"><a href="{% url 'users:login' %}">Log in</a></li>
         {% endif %}
       </ul>
     </nav>

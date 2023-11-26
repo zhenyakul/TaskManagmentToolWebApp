@@ -185,38 +185,12 @@ nav a:hover {
   --c2: #13004d;
 }
 
-main div {
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.index-paragraph{
+  text-align: center
 }
 
-main h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: black;
+.index-h2{
+  text-align: center;
+text-transform: uppercase;
 }
 
-main ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-
-main li {
-  margin-bottom: 10px;
-  background-color: white;
-  color: black;
-  padding: 10px;
-  border-radius: 50px; /*1*/
-  border: 3px solid transparent; /*2*/
-  background: linear-gradient(45deg, red, blue) border-box;
-  -webkit-mask: /*4*/ linear-gradient(#fff 0 0) padding-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor; 
-  mask-composite: exclude; 
-}
