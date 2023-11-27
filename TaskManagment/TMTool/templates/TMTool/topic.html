@@ -12,7 +12,7 @@
   <h4 class="card-header">
     {{ entry.date_added|date:'M d, Y H:i' }}
     <small
-      ><a href="{% url 'TMTool:edit_entry' entry.id %}">edit entry</a></small
+      ><a href="{% url 'TMTool:edit_entry' entry.id %}">Edit entry</a></small
     >
     {{ entry.get_flag_status_display }}
   </h4>
