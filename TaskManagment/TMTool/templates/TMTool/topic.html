@@ -4,7 +4,7 @@
   <h3>{{ topic }}</h3>
 
   <p>
-      <a href="{% url 'TMTool:new_entry' topic.id %}">Add new entry</a>
+      <a class="add-topic-button" href="{% url 'TMTool:new_entry' topic.id %}">Add new entry</a>
   </p>
 
       {% for entry in entries %}
@@ -19,7 +19,7 @@
 
         </div>
       {% empty %}
-        <p>No entries have beem added yet.</p>
+        <p>No entries have been added yet.</p>
       {% endfor %}
 
 

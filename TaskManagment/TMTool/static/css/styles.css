@@ -185,12 +185,13 @@ nav a:hover {
   --c2: #13004d;
 }
 
-.index-paragraph{
-  text-align: center
+.index-paragraph {
+  text-align: center;
 }
 
-.index-h2{
+.index-h2 {
   text-align: center;
-text-transform: uppercase;
+  text-transform: uppercase;
 }
+
 
