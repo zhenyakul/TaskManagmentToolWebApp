@@ -6,7 +6,7 @@
   <form class="form" action="{% url 'users:login' %}" method="post">
     {% csrf_token %} {{ form.as_p }}
     <button name="submit" class="btn btn-primary">Login</button>
-    <input type="hidden" name="next" value="{% url 'TMTool:topics' %}" />
+    <input type="hidden" name="next" value="{% url 'TMTool:home_page' %}" />
   </form>
 </div>
 {% endblock content %}
