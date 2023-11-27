@@ -6,6 +6,8 @@ app_name = 'TMTool'
 urlpatterns = [
     #main-page
     path('', views.index, name='index'),
+    #home-page
+    path('home/', views.home_page, name='home_page'),
     #Topics-page
     path('topics/', views.topics, name='topics'),
     #Topic-page

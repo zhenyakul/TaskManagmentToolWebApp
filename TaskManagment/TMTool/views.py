@@ -8,7 +8,7 @@ from django.http import Http404
 
 def index(request):
     if request.user.is_authenticated:
-        return render(request, 'TMTool/topics.html')
+        return render(request, 'TMTool/home_page.html')
     return render(request, 'TMTool/index.html')
 
 @login_required
@@ -71,3 +71,6 @@ def edit_entry(request, entry_id):
             return redirect('TMTool:topic', topic_id=topic.id)
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'TMTool/edit_entry.html', context)
+
+def home_page(request):
+    return render(request, 'TMTool/home_page.html')

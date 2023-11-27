@@ -1,16 +1,13 @@
-{% extends 'TMTool/base.html' %}
-
-{% block content %}
+{% extends 'TMTool/base.html' %} {% block content %}
 
 <div class="center-container">
   <form class="form" method="post" action="{% url 'users:register' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
+    {% csrf_token %} {{ form.as_p }}
 
-      <button name="submit" class="btn btn-primary">Register</button>
+    <button name="submit" class="btn btn-primary">Register</button>
 
-    <input type="hidden" name="next" value="{% url 'TMTool:topics' %}"/>
-</form>
+    <input type="hidden" name="next" value="{% url 'TMTool:home_page' %}" />
+  </form>
 </div>
-  
+
 {% endblock content %}
