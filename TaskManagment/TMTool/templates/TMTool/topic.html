@@ -1,26 +1,23 @@
-{% extends "TMTool/base.html" %}
+{% extends "TMTool/base.html" %} {% block content %}
+<h3>{{ topic }}</h3>
 
-{% block content %}
-  <h3>{{ topic }}</h3>
+<p>
+  <a class="add-topic-button" href="{% url 'TMTool:new_entry' topic.id %}"
+    >Add new entry</a
+  >
+</p>
 
-  <p>
-      <a class="add-topic-button" href="{% url 'TMTool:new_entry' topic.id %}">Add new entry</a>
-  </p>
-
-      {% for entry in entries %}
-        <div class="card mb-3">
-            <h4 class="card-header">
-                {{ entry.date_added|date:'M d, Y H:i' }}
-                <small><a href="{% url 'TMTool:edit_entry' entry.id %}">edit entry</a></small>
-            </h4>
-            <div class="card-body">
-              {{ entry.text|linebreaks }}
-            </div>
-
-        </div>
-      {% empty %}
-        <p>No entries have been added yet.</p>
-      {% endfor %}
-
-
-{% endblock content %}
+{% for entry in entries %}
+<div class="card mb-3">
+  <h4 class="card-header">
+    {{ entry.date_added|date:'M d, Y H:i' }}
+    <small
+      ><a href="{% url 'TMTool:edit_entry' entry.id %}">edit entry</a></small
+    >
+    {{ entry.get_flag_status_display }}
+  </h4>
+  <div class="card-body">{{ entry.text|linebreaks }}</div>
+</div>
+{% empty %}
+<p>No entries have been added yet.</p>
+{% endfor %} {% endblock content %}

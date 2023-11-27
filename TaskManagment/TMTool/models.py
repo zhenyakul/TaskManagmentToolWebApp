@@ -15,10 +15,18 @@ class Entry(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
+    STATUS_CHOICES = (
+        ('status1', 'created'),
+        ('status2', 'In progress'),
+        ('status3', 'suspended'),
+        ('status4', 'done'),
+    )
+    flag_status = models.CharField(max_length=15, choices=STATUS_CHOICES, default='status1')
     
 
     class Meta:
         verbose_name_plural = 'entries'
 
     def __str__(self):
-        return f"{self.text[:50]}..."
+        return (f"{self.text[:50]}...",
+                self.flag_status)

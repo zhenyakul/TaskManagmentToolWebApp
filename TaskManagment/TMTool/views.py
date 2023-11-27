@@ -7,6 +7,8 @@ from django.http import Http404
 
 
 def index(request):
+    if request.user.is_authenticated:
+        return render(request, 'TMTool/topics.html')
     return render(request, 'TMTool/index.html')
 
 @login_required

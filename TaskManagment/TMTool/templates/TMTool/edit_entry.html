@@ -1,14 +1,15 @@
-{% extends 'TMTool/base.html' %}
+{% extends 'TMTool/base.html' %} {% block content %}
 
-{% block content %}
+<h2><a href="{% url 'TMTool:topic' topic.id %}">{{ topic }}</a></h2>
+<h3>Edit entry:</h3>
 
-  <h2><a href="{% url 'TMTool:topic' topic.id %}">{{ topic }}</a></h2>
-  <h3>Edit entry:</h3>
-
-  <form class="form" action="{% url 'TMTool:edit_entry' entry.id %}" method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-        <button name="submit">save changes</button>
-  </form>
+<form
+  class="form"
+  action="{% url 'TMTool:edit_entry' entry.id %}"
+  method="post"
+>
+  {% csrf_token %} {{ form.as_p }}
+  <button name="submit">save changes</button>
+</form>
 
 {% endblock content %}

@@ -11,6 +11,7 @@ class TopicForm(forms.ModelForm):
 class EntryForm(forms.ModelForm):
     class Meta:
         model = Entry
-        fields = ['text']
-        labels = {'text': 'Entry:'}
+        fields = ['text', 'flag_status']
+        labels = {'text': 'Entry:', 'flag_status': 'Change status:'}
         widgets = {'text': forms.Textarea(attrs={'cols': 100})}
+        
