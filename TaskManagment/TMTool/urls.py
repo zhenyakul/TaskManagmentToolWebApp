@@ -18,5 +18,9 @@ urlpatterns = [
     path('new_entry/<int:topic_id>', views.new_entry, name='new_entry'),
     #Edit-entry-page
     path('edit_entry/<int:entry_id>/', views.edit_entry, name='edit_entry'),
+    #Delete-entry-method
+    path('delete_entry/<int:entry_id>', views.delete_entry, name='delete_entry'),
+    #Delete-topic-method
+    path('delete_topic/<int:topic_id>', views.delete_topic, name='delete_topic'),
 
 ]

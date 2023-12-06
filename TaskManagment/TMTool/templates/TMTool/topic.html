@@ -17,6 +17,12 @@
   </h4>
   <p>{{ entry.get_flag_status_display }}</p>
   <div class="card-body">{{ entry.text|linebreaks }}</div>
+  <div>
+    <form action="{% url 'TMTool:delete_entry' entry.id %}" method="post">
+      {% csrf_token %}
+      <input type="submit" value="delete_entry" />
+    </form>
+  </div>
 </div>
 {% empty %}
 <p>No entries have been added yet.</p>
