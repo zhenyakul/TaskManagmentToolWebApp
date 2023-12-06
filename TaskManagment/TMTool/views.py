@@ -74,3 +74,26 @@ def edit_entry(request, entry_id):
 
 def home_page(request):
     return render(request, 'TMTool/home_page.html')
+
+@login_required
+def delete_entry(request, entry_id):
+    entry = Entry.objects.get(id=entry_id)
+    topic = entry.topic
+    if topic.owner != request.user:
+        raise Http404
+    if request.method == 'POST':
+        entry.delete()
+        return redirect('TMTool:topics', topic_id=topic.id)
+    context = {'entry': entry}
+    return render(request, 'TMTool/topic.html', context)
+
+@login_required
+def delete_topic(request, topic_id):
+    topic = Topic.objects.get(id=topic_id)
+    if topic.owner != request.user:
+        raise Http404
+    if request.method == 'POST':
+        topic.delete()
+        return redirect('TMTool:topics')
+    context = {'topic': topic}
+    return render(request, 'TMTool/topics.html', context)
