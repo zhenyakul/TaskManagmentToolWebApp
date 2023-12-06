@@ -1,3 +1,12 @@
 {% extends 'TMTool/base.html' %} {% block content %}
-<p>Home page</p>
+<h1>Welcome to the Task Management Tool</h1>
+<ul class="topics-list">
+  {% for topic in last_topics %}
+  <li>
+    <a href="{% url 'TMTool:topic' topic.id %}">{{ topic }}</a>
+  </li>
+  {% empty %}
+  <li>No topics have been added yet.</li>
+  {% endfor %}
+</ul>
 {% endblock %}
