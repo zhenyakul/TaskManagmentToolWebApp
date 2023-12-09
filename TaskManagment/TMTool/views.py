@@ -89,7 +89,7 @@ def delete_entry(request, entry_id):
         raise Http404
     if request.method == 'POST':
         entry.delete_entry()
-        return redirect('TMTool:topics', topic_id=topic.id)
+        return redirect('TMTool:topic', topic_id=topic.id)
     context = {'entry': entry}
     return render(request, 'TMTool/topic.html', context)
 
