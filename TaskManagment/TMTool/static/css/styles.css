@@ -208,3 +208,7 @@ nav a:hover {
 }
 
 
+li{
+  white-space: nowrap;
+}
+
