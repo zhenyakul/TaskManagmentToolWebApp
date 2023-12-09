@@ -148,7 +148,10 @@ nav a:hover {
   background-color: #102944;
 }
 
-.form input[name="csrfmiddlewaretoken"],
+.form input[name="csrfmiddlewaretoken"] {
+  display: none;
+}
+
 .form input[name="next"] {
   display: none;
 }
@@ -204,6 +207,4 @@ nav a:hover {
   text-transform: uppercase;
 }
 
-li{
-  white-space: nowrap;
-}
+
