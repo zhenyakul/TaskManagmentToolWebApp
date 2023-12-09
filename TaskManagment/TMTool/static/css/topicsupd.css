@@ -1,32 +1,60 @@
-.add-topic-link{
-    transition: 0.5s;
-    text-align: center;
-    margin-bottom: 10px;
-    background-color: white;
-    color: white;
-    padding: 10px;
-    border-radius: 50px;
-    border: 3px solid transparent;
-    background: linear-gradient(
-        90deg,
-        var(--c1, #2a0000),
-        var(--c2, #116f8c) 51%,
-        var(--c1, #bba5fc)
-      )
-      var(--x, 0) / 200% border-box;
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
+.add-topic-link {
+  transition: 0.5s;
+  text-align: center;
+  margin-bottom: 10px;
+  background-color: white;
+  color: white;
+  padding: 10px;
+  border-radius: 50px;
+  border: 3px solid transparent;
+  background: linear-gradient(
+      90deg,
+      var(--c1, #2a0000),
+      var(--c2, #116f8c) 51%,
+      var(--c1, #bba5fc)
+    )
+    var(--x, 0) / 200% border-box;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.add-topic-link:hover {
+  --x: 100%;
+}
+
+.add-new-topic-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
 
-.add-topic-link:hover {
-    --x: 100%;
-  }
-  
+.create-new-topic-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 8px; /* Пример: устанавливаем бордер-радиус */
+}
 
-.add-new-topic-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.add-topic-input {
+  width: 100%;
+  max-width: 600px; /* Пример: устанавливаем максимальную ширину */
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+
+.create-new-topic-container form {
+  display: flex;
+  flex-direction: column; /* Столбцовая ориентация элементов формы */
+  max-width: 300px; /* Пример: устанавливаем максимальную ширину формы */
+  width: 100%;
 }
