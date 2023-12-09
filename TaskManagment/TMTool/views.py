@@ -74,9 +74,9 @@ def edit_entry(request, entry_id):
             return redirect('TMTool:topic', topic_id=topic.id)
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'TMTool/edit_entry.html', context)
-
+@login_required
 def home_page(request):
-    last_topics = Topic.objects.order_by('-last_accessed')[:3]
+    last_topics = Topic.objects.filter(owner=request.user).order_by('-last_accessed')[:3]
     context = {'last_topics': last_topics}
     return render(request, 'TMTool/home_page.html', context)
 
