@@ -1,0 +1,32 @@
+.add-topic-link{
+    transition: 0.5s;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: white;
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    border: 3px solid transparent;
+    background: linear-gradient(
+        90deg,
+        var(--c1, #2a0000),
+        var(--c2, #116f8c) 51%,
+        var(--c1, #bba5fc)
+      )
+      var(--x, 0) / 200% border-box;
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+
+
+.add-topic-link:hover {
+    --x: 100%;
+  }
+  
+
+.add-new-topic-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
