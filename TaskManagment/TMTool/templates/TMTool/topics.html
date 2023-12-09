@@ -1,17 +1,21 @@
-{% extends "TMTool/base.html" %}
+{% extends "TMTool/base.html" %} {% block content %}
+<h2 class="">Topics</h2>
 
-{% block content %}
-    <h2 class="">Topics</h2>
+<ul class="topics-list">
+  {% for topic in topics %}
+  <li>
+    <a href="{% url 'TMTool:topic' topic.id %}">{{ topic }}</a>
+    <form action="{% url 'TMTool:delete_topic' topic.id %}" method="post">
+      {% csrf_token %}
+      <input type="submit" value="delete topic" />
+    </form>
+  </li>
+  {% empty %}
+  <li>No topics have been added yet.</li>
+  {% endfor %}
+</ul>
 
-    <ul class="topics-list">
-        {% for topic in topics %}
-            <li>
-                <a  href="{% url 'TMTool:topic' topic.id %}">{{ topic }}</a>
-            </li>
-        {% empty %}
-            <li>No topics have been added yet.</li>
-        {% endfor %}
-    </ul>
-
-    <a href="{% url 'TMTool:new_topic' %}" class="add-topic-button">Add new topic</a>
+<a href="{% url 'TMTool:new_topic' %}" class="add-topic-button"
+  >Add new topic</a
+>
 {% endblock content %}

@@ -5,10 +5,14 @@ class Topic(models.Model):
     """Тема которую изучает юзер"""
     text = models.CharField(max_length=200)
     date_added = models.DateTimeField(auto_now_add=True)
+    last_accessed = models.DateTimeField(auto_now=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.text
+        return (f"{self.text}")
+    
+    def delete_topic(self):
+        self.delete()
 
 class Entry(models.Model):
 
@@ -30,3 +34,6 @@ class Entry(models.Model):
     def __str__(self):
         return (f"{self.text[:50]}...",
                 self.flag_status)
+    
+    def delete_entry(self):
+        self.delete()
