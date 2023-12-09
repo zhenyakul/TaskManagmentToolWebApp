@@ -12,7 +12,6 @@
     <link rel="stylesheet" href='{% static "css/topicsupd.css" %}' />
     <link rel="stylesheet" href='{% static "css/registration.css" %}' />
 
-
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -22,20 +21,32 @@
   <body>
     <header class="header-container">
       <nav class="header-nav">
-        <div class="header-nav"><a href="{% url 'TMTool:home_page' %}">TMTool</a></div>
+        {% if user.is_authenticated %}
+        <div class="header-nav">
+          <a href="{% url 'TMTool:home_page' %}">TMTool</a>
+        </div>
+        {% else %}
+        <div class="header-nav">
+          <a href="{% url 'TMTool:home_page' %}">TMTool</a>
+        </div>
+        {% endif %}
 
-        <div class="header-wrap"><ul class="header-links">
-          {% if user.is_authenticated %}
-          <li><a href="{% url 'TMTool:topics' %}">Topics</a></li>
-          <li class="navbar-text">Hello, {{ user.username }}</li>
-          <li><a href="{% url 'users:logout' %}">Log out</a></li>
-          {% else %}
-          <li class="nav-btn">
-            <a href="{% url 'users:register' %}">Register</a>
-          </li>
-          <li class="nav-btn"><a href="{% url 'users:login' %}">Log in</a></li>
-          {% endif %}
-        </ul></div>
+        <div class="header-wrap">
+          <ul class="header-links">
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'TMTool:topics' %}">Topics</a></li>
+            <li class="navbar-text">Hello, {{ user.username }}</li>
+            <li><a href="{% url 'users:logout' %}">Log out</a></li>
+            {% else %}
+            <li class="nav-btn">
+              <a href="{% url 'users:register' %}">Register</a>
+            </li>
+            <li class="nav-btn">
+              <a href="{% url 'users:login' %}">Log in</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
       </nav>
     </header>
 
