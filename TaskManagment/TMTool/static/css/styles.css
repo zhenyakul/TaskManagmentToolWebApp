@@ -136,14 +136,6 @@ nav a:hover {
   background-color: #102944;
 }
 
-.form input[name="csrfmiddlewaretoken"] {
-  display: none;
-}
-
-.form input[name="next"] {
-  display: none;
-}
-
 .center-container {
   display: flex;
   flex-direction: column;
@@ -193,5 +185,3 @@ nav a:hover {
   text-align: center;
   text-transform: uppercase;
 }
-
-

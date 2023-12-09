@@ -2,7 +2,9 @@
 
 <div class="center-container">
   <form class="form" method="post" action="{% url 'users:register' %}">
-    {% csrf_token %} {{ form.as_input }}
+    {% csrf_token %} {% for field in form %}
+    <div class="fieldWrapper">{{ field.label_tag }} {{ field }}</div>
+    {% endfor %}
 
     <button name="submit" class="btn btn-primary">Register</button>
 
