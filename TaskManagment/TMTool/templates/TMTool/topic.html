@@ -14,8 +14,8 @@
     <small
       ><a href="{% url 'TMTool:edit_entry' entry.id %}">Edit entry</a></small
     >
+    {{ entry.get_flag_status_display }}
   </h4>
-  <p>{{ entry.get_flag_status_display }}</p>
   <div class="card-body">{{ entry.text|linebreaks }}</div>
 </div>
 {% empty %}
