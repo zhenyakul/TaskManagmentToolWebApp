@@ -1,25 +1,25 @@
 {% extends "TMTool/base.html" %} {% block content %}
 <h2 class="">Topics</h2>
 
-<ul class="topics-list">
-  {% for topic in topics %}
-  <li>
-    <div class="topics-container">
-      <a href="{% url 'TMTool:topic' topic.id %}">{{ topic }}</a>
-      <form action="{% url 'TMTool:delete_topic' topic.id %}" method="post">
-        {% csrf_token %}
-        <button class="del-topic-button" type="submit">Delete topic</button>
-      </form>
-    </div>
-  </li>
-  {% empty %}
-  <li>No topics have been added yet.</li>
-  {% endfor %}
-</ul>
-<div class="add-new-topic-container">
-  <form action="{% url 'TMTool:new_topic' %}" method="get">
-    <button type="submit" class="add-topic-link">Add new topic</button>
-  </form>
-</div>
+  <ul class="topics-list">
+    {% for topic in topics %}
+    <li>
+      <div class="topics-container">
+        <a href="{% url 'TMTool:topic' topic.id %}">{{ topic }}</a>
+        <form action="{% url 'TMTool:delete_topic' topic.id %}" method="post">
+          {% csrf_token %}
+          <button class="del-topic-button" type="submit">Delete topic</button>
+        </form>
+      </div>
+    </li>
+    {% empty %}
+    <li>No topics have been added yet.</li>
+    {% endfor %}
+  </ul>
+  <div class="add-new-topic-container">
+    <form action="{% url 'TMTool:new_topic' %}" method="get">
+      <button type="submit" class="add-topic-link">Add new topic</button>
+    </form>
+  </div>
 
 {% endblock content %}

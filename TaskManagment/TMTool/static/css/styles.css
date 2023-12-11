@@ -3,9 +3,8 @@ body {
   margin: 0;
   padding: 0;
   color: black;
-  background-color: #279d8f;
+  background-color: rgb(179, 200, 230);
 }
-
 
 .header-container {
   max-width: 1000px;
@@ -13,9 +12,9 @@ body {
   height: 48px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid black; 
-  border-left: 1px solid black; 
-  border-right: 1px solid black; 
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
   padding: 18px 20px;
   border-radius: 0px 0px 8px 8px;
   margin: 0 auto;
@@ -23,12 +22,14 @@ body {
   top: 0;
 }
 
-
 .header-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+.header-links-item {
+  white-space: nowrap;
 }
 
 nav a {
@@ -84,7 +85,8 @@ nav a:hover {
   background-color: white;
   color: black;
   padding: 10px;
-  border-radius: 5px;
+  border: 1px black solid;
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -165,8 +167,23 @@ nav a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: rgb(179, 200, 230);
 }
 
+.block-container {
+  background-color: rgb(179, 200, 230);
+}
+
+.get-started-main-cont {
+  border: 1px black solid;
+  border-radius: 8px;
+
+}
+
+.get-started-par {
+  margin: 0 auto;
+
+}
 .get-started-container {
   display: flex;
   justify-content: center;
@@ -174,19 +191,20 @@ nav a:hover {
 }
 
 .get-started-button {
+  border: 1px solid black;
   display: inline-block;
   padding: 30px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   background: linear-gradient(
-    90deg,
-    var(--c1, #000000),
-    var(--c2, #116f8c) 51%,
-    var(--c1, #13004d)
-  )
+      90deg,
+      var(--c1, #4c99ff),
+      var(--c2, #b3c8e6) 51%,
+      var(--c1, #ed8ffc)
+    )
     var(--x, 0) / 200%;
-  color: white;
+  color: black;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
@@ -198,21 +216,15 @@ nav a:hover {
 }
 
 .btn-1 {
-  --c1: #116f8c;
-  --c2: #13004d;
+  --c1: #4c99ff;
+  --c2: #ed8ffc;
 }
 
 .index-paragraph {
-  text-align: center;
+  text-align:center;
 }
 
 .index-h2 {
   text-align: center;
   text-transform: uppercase;
 }
-
-
-li{
-  white-space: nowrap;
-}
-

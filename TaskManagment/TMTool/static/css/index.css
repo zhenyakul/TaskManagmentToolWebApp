@@ -19,19 +19,21 @@ main div {
   }
   
   .main-li {
+
+    border: 1px black solid;
     transition: 0.5s;
     text-align: center;
     margin-bottom: 10px;
     background-color: white;
-    color: white;
+    color: black;
     padding: 10px;
     border-radius: 50px; 
-    border: 3px solid transparent; 
+    border: 3px black solid; 
     background: linear-gradient(
       90deg,
-      var(--c1, #000000),
-      var(--c2, #116f8c) 51%,
-      var(--c1, #13004d)
+      var(--c1, #b3c8e6),
+      var(--c2, #4c99ff) 51%,
+      var(--c1, #ed8ffc)
     )
     var(--x, 0) / 200% border-box;
     -webkit-mask-composite: xor;

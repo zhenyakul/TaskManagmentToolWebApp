@@ -1,5 +1,5 @@
 {% extends "TMTool/base.html" %} {% block content %}
-<div>
+<div class="get-started-main-cont">
   <p class="index-paragraph">
     Efficiently manage your tasks with our powerful Task Management Tool. Stay
     organized, collaborate seamlessly, and boost productivity.
@@ -16,10 +16,11 @@
     Getting started is easy! Simply click the button below to create your
     account and begin managing your tasks effectively.
   </p>
-</div>
-<div class="get-started-container">
+ <div class="get-started-container">
   <a href="{% url 'users:register' %}" class="get-started-button btn-1"
     >Get Started</a
   >
+</div> 
 </div>
+
 {% endblock content %}

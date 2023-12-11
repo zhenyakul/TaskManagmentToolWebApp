@@ -1,9 +1,10 @@
 footer {
-    background-color: #000000;
-    color: white;
+    background-color: white;
+    color: rgb(0, 0, 0);
     padding: 10px;
     text-align: center;
     position: fixed;
     bottom: 0;
     width: 100%;
+    border: 1px black solid;
   }
