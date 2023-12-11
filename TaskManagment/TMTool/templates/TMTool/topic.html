@@ -1,29 +1,38 @@
 {% extends "TMTool/base.html" %} {% block content %}
-<h3>{{ topic }}</h3>
 
-<p>
-  <a class="add-topic-button" href="{% url 'TMTool:new_entry' topic.id %}"
-    >Add new entry</a
-  >
-</p>
+<div class="add-new-entry-container">
+  <h3 class="entry-topic-label">{{ topic }}</h3>
+  <form action="{% url 'TMTool:new_entry' topic.id %}" method="get">
+    <button type="submit" class="add-entry-link">Add new entry</button>
+  </form>
+</div>
 
 {% for entry in entries %}
-<div class="card mb-3">
-  <h4 class="card-header">
-    {{ entry.date_added|date:'M d, Y H:i' }}
-    <small
-      ><a href="{% url 'TMTool:edit_entry' entry.id %}">Edit entry</a></small
-    >
-    {{ entry.get_flag_status_display }}
-  </h4>
-  <div class="card-body">{{ entry.text|linebreaks }}</div>
-  <div>
-    <form action="{% url 'TMTool:delete_entry' entry.id %}" method="post">
-      {% csrf_token %}
-      <input type="submit" value="delete_entry" />
-    </form>
+<div class="entry-item">
+  <div class="entry-header">
+    <div class="card-header-container">
+      <h4 class="card-header">{{ entry.date_added|date:'M d, Y H:i' }}</h4>
+      <p class="entry-status">{{ entry.get_flag_status_display }}</p>
+    </div>
+
+    <div class="edit-entry-container">
+      <form action="{% url 'TMTool:edit_entry' entry.id %}" method="get">
+        <button class="edit-entry-btn" type="submit">Edit entry</button>
+      </form>
+    </div>
   </div>
+
+  <div class="card-body">{{ entry.text|linebreaks }}</div>
+</div>
+<div class="delete-entry-container">
+  <form action="{% url 'TMTool:delete_entry' entry.id %}" method="post">
+    {% csrf_token %}
+    <button class="delete-entry-btn" type="submit">Delete Entry</button>
+  </form>
 </div>
 {% empty %}
+<div class="entry-item">
 <p>No entries have been added yet.</p>
+
+</div>
 {% endfor %} {% endblock content %}
