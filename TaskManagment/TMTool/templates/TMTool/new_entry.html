@@ -1,12 +1,21 @@
 {% extends "TMTool/base.html" %} {% block content %}
-<h2><a href="{% url 'TMTool:topic' topic.id %}">{{ topic }}</a></h2>
+<h2>
+  <a class="topic-label entry-topic-label" href="{% url 'TMTool:topic' topic.id %}"
+    >{{ topic }}</a
+  >
+</h2>
 
-<h3>Add a new entry:</h3>
+<h3 class="entry-label">Add a new entry:</h3>
 <div class="create-new-entry-container">
-  <form class="entry-form" action="{% url 'TMTool:new_entry' topic.id %}" method="post">
+  <form
+    class="entry-form"
+    action="{% url 'TMTool:new_entry' topic.id %}"
+    method="post"
+  >
     {% csrf_token %} {{ form.as_div }}
-    <div class="add-entry-btn-cont"> <button class="add-topic-link" name="submit">Add entry</button></div>
-   
+    <div class="add-entry-btn-cont">
+      <button class="add-topic-link" name="submit">Add entry</button>
+    </div>
   </form>
 </div>
 

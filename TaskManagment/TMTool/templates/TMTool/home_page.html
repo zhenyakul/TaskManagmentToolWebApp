@@ -1,13 +1,30 @@
 {% extends 'TMTool/base.html' %} {% block content %}
-<h1>Welcome to the Task Management Tool</h1>
-<h3>Recently opened topics:</h3>
+<h1 class="index-paragraph">Welcome to the Task Management Tool</h1>
+<h3 class="index-paragraph">Recently opened topics:</h3>
 <ul class="topics-list">
   {% for topic in last_topics %}
-  <li >
-    <a href="{% url 'TMTool:topic' topic.id %}">{{ topic }}</a>
+  <li>
+    <a class="entry-topic-label" href="{% url 'TMTool:topic' topic.id %}"
+      >{{ topic }}</a
+    >
   </li>
+
   {% empty %}
-  <li>Create your first topic!</li>
+  <li class="index-paragraph">
+    Create your first topic!
+    <div class="add-new-topic-container">
+      <form action="{% url 'TMTool:new_topic' %}" method="get">
+        <button type="submit" class="add-topic-link">Add new topic</button>
+      </form>
+    </div>
+  </li>
+
   {% endfor %}
 </ul>
+
+<div class="add-new-topic-container">
+  <form action="{% url 'TMTool:new_topic' %}" method="get">
+    <button type="submit" class="add-topic-link">Add new topic</button>
+  </form>
+</div>
 {% endblock %}

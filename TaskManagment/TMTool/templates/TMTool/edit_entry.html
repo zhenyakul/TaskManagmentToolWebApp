@@ -1,6 +1,6 @@
 {% extends 'TMTool/base.html' %} {% block content %}
 
-<h2><a href="{% url 'TMTool:topic' topic.id %}">{{ topic }}</a></h2>
+<h2 class=""><a class="" href="{% url 'TMTool:topic' topic.id %}">{{ topic }}</a></h2>
 <h3>Edit entry:</h3>
 
 <form
@@ -9,7 +9,7 @@
   method="post"
 >
   {% csrf_token %} {{ form.as_p }}
-  <button name="submit">save changes</button>
+  <button name="submit">Save changes</button>
 </form>
 
 {% endblock content %}

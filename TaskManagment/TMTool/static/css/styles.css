@@ -169,18 +169,19 @@ nav a:hover {
 }
 
 .block-container {
+  margin: 0 auto;
+  max-width: 830px;
   background-color: rgb(179, 200, 230);
 }
 
 .get-started-main-cont {
+  background-color: white;
   border: 1px black solid;
   border-radius: 8px;
-
 }
 
 .get-started-par {
   margin: 0 auto;
-
 }
 .get-started-container {
   display: flex;
@@ -219,10 +220,11 @@ nav a:hover {
 }
 
 .index-paragraph {
-  text-align:center;
+  text-align: center;
 }
 
 .index-h2 {
   text-align: center;
   text-transform: uppercase;
+  text-shadow: 1px 1px 1px white, -1px -1px 1px white, 1px -1px 1px white, -1px 1px 1px white;
 }
