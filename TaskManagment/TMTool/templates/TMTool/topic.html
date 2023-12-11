@@ -1,7 +1,9 @@
 {% extends "TMTool/base.html" %} {% block content %}
 
 <div class="add-new-entry-container">
-  <h3 class="entry-topic-label">{{ topic }}</h3>
+  <a class="topic-label entry-topic-label" href="{% url 'TMTool:topics' %}">
+    <h3 >{{ topic }}</h3>
+  </a>
   <form action="{% url 'TMTool:new_entry' topic.id %}" method="get">
     <button type="submit" class="add-entry-link">Add new entry</button>
   </form>
@@ -11,8 +13,14 @@
 <div class="entry-item">
   <div class="entry-header">
     <div class="card-header-container">
+      <p
+        class="{% if entry.flag_status == 'status1' %}class-for-created{% elif entry.flag_status == 'status2' %}class-for-in-progress{% elif entry.flag_status == 'status3' %}class-for-suspended{% elif entry.flag_status == 'status4' %}class-for-done{% endif %}"
+      >
+        {{ entry.get_flag_status_display|safe }}
+      </p>
       <h4 class="card-header">{{ entry.date_added|date:'M d, Y H:i' }}</h4>
-      <p class="entry-status">{{ entry.get_flag_status_display }}</p>
+
+      <!-- <p class="entry-status">{{ entry.get_flag_status_display }}</p> -->
     </div>
 
     <div class="edit-entry-container">
@@ -32,7 +40,6 @@
 </div>
 {% empty %}
 <div class="entry-item">
-<p>No entries have been added yet.</p>
-
+  <p>No entries have been added yet.</p>
 </div>
 {% endfor %} {% endblock content %}
