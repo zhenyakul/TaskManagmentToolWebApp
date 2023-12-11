@@ -3,15 +3,15 @@
   text-align: center;
   margin-bottom: 10px;
   background-color: white;
-  color: white;
+  color: black;
   padding: 10px;
   border-radius: 50px;
-  border: 3px solid transparent;
+  border: 1px solid black;
   background: linear-gradient(
       90deg,
-      var(--c1, #2a0000),
-      var(--c2, #116f8c) 51%,
-      var(--c1, #bba5fc)
+      var(--c1, #b3c8e6),
+      var(--c2, #4c99ff) 51%,
+      var(--c1, #ed8ffc)
     )
     var(--x, 0) / 200% border-box;
   -webkit-mask-composite: xor;

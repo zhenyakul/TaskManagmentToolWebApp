@@ -12,7 +12,7 @@
     <link rel="stylesheet" href='{% static "css/topicsupd.css" %}' />
     <link rel="stylesheet" href='{% static "css/registration.css" %}' />
     <link rel="stylesheet" href='{% static "css/login.css" %}' />
-
+    <link rel="stylesheet" href='{% static "css/entries.css" %}' />
 
     <meta
       name="viewport"
@@ -36,9 +36,15 @@
         <div class="header-wrap">
           <ul class="header-links">
             {% if user.is_authenticated %}
-            <li class="header-links-item"><a href="{% url 'TMTool:topics' %}">Topics</a></li>
-            <li class="header-links-item navbar-text">Hello, {{ user.username }}</li>
-            <li class="header-links-item"><a href="{% url 'users:logout' %}">Log out</a></li>
+            <li class="header-links-item">
+              <a href="{% url 'TMTool:topics' %}">Topics</a>
+            </li>
+            <li class="header-links-item navbar-text">
+              Hello, {{ user.username }}
+            </li>
+            <li class="header-links-item">
+              <a href="{% url 'users:logout' %}">Log out</a>
+            </li>
             {% else %}
             <li class="header-links-item nav-btn">
               <a href="{% url 'users:register' %}">Register</a>
@@ -53,7 +59,9 @@
     </header>
 
     <main class="page-container">
-      <div class="block-container">{% block content %}{% endblock content %}</div>
+      <div class="block-container">
+        {% block content %}{% endblock content %}
+      </div>
     </main>
     <footer>
       <p>&copy; 2023 Your Task Management Tool</p>

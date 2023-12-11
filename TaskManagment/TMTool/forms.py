@@ -17,6 +17,6 @@ class EntryForm(forms.ModelForm):
         fields = ["text", "flag_status"]
         labels = {"text": "Entry:", "flag_status": "Change status:"}
         widgets = {
-            "text": forms.Textarea(attrs={"cols": 100, "class": "textField"}),
+            "text": forms.Textarea(attrs={"cols": 100, "class": "entry-text-area"}),
             "flag_status": forms.Select(attrs={"class": "select"}),
         }
