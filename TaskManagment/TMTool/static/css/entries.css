@@ -38,7 +38,7 @@
 }
 
 .topic-label:hover {
-  color: #ed8ffc;
+  color: #1c07a7;
 }
 
 .entry-label {
@@ -70,6 +70,7 @@
 }
 
 .add-new-entry-container {
+  padding-top: 10px;
   padding-left: 15px;
   padding-right: 15px;
   display: flex;
@@ -138,6 +139,8 @@
   padding: 10px;
   border: 1px dashed black;
   border-radius: 8px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .entry-header {
@@ -196,7 +199,7 @@
   border: 1px solid black;
   font-size: 14px;
   border-radius: 50px;
-  background-color: rgb(108, 126, 224);
+  background-color: rgb(91, 145, 207);
 }
 
 .class-for-done {
