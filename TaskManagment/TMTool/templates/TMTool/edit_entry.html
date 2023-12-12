@@ -13,6 +13,7 @@
     class="entry-form"
     action="{% url 'TMTool:edit_entry' entry.id %}"
     method="post"
+    enctype="multipart/form-data"
   >
     {% csrf_token %} {{ form.as_p }}
     <div class="add-entry-btn-cont">

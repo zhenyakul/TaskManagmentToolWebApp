@@ -30,12 +30,15 @@ class Entry(models.Model):
     flag_status = models.CharField(
         max_length=15, choices=STATUS_CHOICES, default="status1"
     )
+    file = models.FileField(upload_to="TMTool/static/upload/")
 
     class Meta:
         verbose_name_plural = "entries"
 
     def __str__(self):
-        return (f"{self.text[:50]}...", self.flag_status)
+        return (f"{self.text[:50]}...")
 
     def delete_entry(self):
         self.delete()
+    
+    

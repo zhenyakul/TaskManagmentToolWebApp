@@ -5,6 +5,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.utils import timezone
+from .middleware import handle_uploaded_file
 
 
 def index(request):
@@ -68,10 +69,16 @@ def edit_entry(request, entry_id):
     if request.method != 'POST':
         form = EntryForm(instance=entry)
     else:
-        form = EntryForm(instance=entry, data=request.POST)
+        form = EntryForm(data=request.POST, files=request.FILES, instance=entry)
         if form.is_valid():
-            form.save()
-            return redirect('TMTool:topic', topic_id=topic.id)
+            print("Form is valid")
+            if 'file' in request.FILES:
+                handle_uploaded_file(request.FILES["file"])
+                form.save()
+                return redirect('TMTool:topic', topic_id=topic.id)
+        else:
+            print("Form errors:", form.errors)
+
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'TMTool/edit_entry.html', context)
 
