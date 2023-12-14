@@ -19,7 +19,6 @@ main h2 {
   color: black;
   padding: 10px;
   border-radius: 50px;
-  border: 3px black solid;
   background: linear-gradient(
       90deg,
       var(--c1, #b3c8e6),
